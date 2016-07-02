@@ -16,4 +16,10 @@ protocol RoutingCreator {
 public func PerfectServerModuleInit() {
     Routing.Handler.registerGlobally()
     Company.createRouting()
+    SQLManager.DefaultManager
+    do {
+        try Company.createCompanyTable()
+    } catch {
+        print("Failed to create DB.")
+    }
 }

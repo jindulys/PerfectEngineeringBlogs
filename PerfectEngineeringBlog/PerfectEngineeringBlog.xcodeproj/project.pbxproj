@@ -13,6 +13,7 @@
 		0E951A121D281D2F000C6EB8 /* PerfectLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E951A111D281D2F000C6EB8 /* PerfectLib.framework */; };
 		0E951A141D281DD1000C6EB8 /* EngineeringBlogPerfectHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E951A131D281DD1000C6EB8 /* EngineeringBlogPerfectHandler.swift */; };
 		0E951A161D282F40000C6EB8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E951A151D282F40000C6EB8 /* Company.swift */; };
+		0E951A181D284E6E000C6EB8 /* SQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E951A171D284E6E000C6EB8 /* SQLManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		0E951A111D281D2F000C6EB8 /* PerfectLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PerfectLib.framework; path = "../../../Library/Developer/Xcode/DerivedData/PerfectEngineeringBlog-ahokebargxdkpqawrokfvltbimlq/Build/Products/Debug/PerfectLib.framework"; sourceTree = "<group>"; };
 		0E951A131D281DD1000C6EB8 /* EngineeringBlogPerfectHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineeringBlogPerfectHandler.swift; sourceTree = "<group>"; };
 		0E951A151D282F40000C6EB8 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		0E951A171D284E6E000C6EB8 /* SQLManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				0E951A151D282F40000C6EB8 /* Company.swift */,
 				0E9519FA1D281CCF000C6EB8 /* PerfectEngineeringBlog.h */,
 				0E9519FC1D281CCF000C6EB8 /* Info.plist */,
+				0E951A171D284E6E000C6EB8 /* SQLManager.swift */,
 			);
 			path = PerfectEngineeringBlog;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				0E951A141D281DD1000C6EB8 /* EngineeringBlogPerfectHandler.swift in Sources */,
 				0E951A161D282F40000C6EB8 /* Company.swift in Sources */,
+				0E951A181D284E6E000C6EB8 /* SQLManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
