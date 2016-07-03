@@ -23,19 +23,7 @@ public class SQLManager {
     private let dbHandler: SQLite
     
     private init?() {
-        var path = NSSearchPathForDirectoriesInDomains(
-            .DesktopDirectory, .UserDomainMask, true
-            ).first! + "PerfectEngineeringTestDB"
-        
-        do {
-            try NSFileManager.defaultManager().createDirectoryAtPath(
-                path, withIntermediateDirectories: true, attributes: nil
-            )
-        }catch {
-            print("Fail to creat directory \(path)")
-        }
-        
-        path += "/db.sqlite3"
+        let path = PerfectServer.staticPerfectServer.homeDir() + serverSQLiteDBs + "TapTrackerDb1"
         do {
             dbHandler = try SQLite(path)
         } catch {

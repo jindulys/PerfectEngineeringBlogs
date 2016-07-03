@@ -45,7 +45,7 @@ extension Company {
         }
         try db.execute(
             "CREATE TABLE IF NOT EXISTS Company(" +
-            "CompanyID INT PRIMARY KEY NOT NULL," +
+            "CompanyID INTEGER PRIMARY KEY AUTOINCREMENT," +
             "Name CHAR(255)," +
             "BaseURL CHAR(255)," +
             "CompanyBlogURL CHAR(255)," +
@@ -71,16 +71,28 @@ class PostCompanyHandler: RequestHandler {
                 return
             }
             
-            try db.execute("INSERT INTO Company (CompanyID, Name, BaseURL, CompanyBlogURL, InfoTableID) VALUES (?, ?, ?, ?, ?);",
-                           doBindings: { (statement) in
-                // TODO: nil check
-                try statement.bind(1, json.dictionary["companyID"] as! Int)
-                try statement.bind(2, companyName)
-                try statement.bind(3, json.dictionary["baseURL"] as? String ?? "")
-                try statement.bind(4, json.dictionary["companyBlogURL"] as? String ?? "")
-                try statement.bind(5, json.dictionary["infotableID"] as? Int ?? 0)
-            })
-            response.setStatus(200, message: "Created")
+            if let _ = json.dictionary["companyID"] as? Int {
+                try db.execute("INSERT INTO Company (CompanyID, Name, BaseURL, CompanyBlogURL, InfoTableID) VALUES (?, ?, ?, ?, ?);",
+                               doBindings: { (statement) in
+                                // TODO: nil check
+                                try statement.bind(1, json.dictionary["companyID"] as! Int)
+                                try statement.bind(2, companyName)
+                                try statement.bind(3, json.dictionary["baseURL"] as? String ?? "")
+                                try statement.bind(4, json.dictionary["companyBlogURL"] as? String ?? "")
+                                try statement.bind(5, json.dictionary["infotableID"] as? Int ?? 0)
+                })
+                response.setStatus(200, message: "Created")
+            } else {
+                try db.execute("INSERT INTO Company (Name, BaseURL, CompanyBlogURL, InfoTableID) VALUES (?, ?, ?, ?);",
+                               doBindings: { (statement) in
+                                // TODO: nil check
+                                try statement.bind(1, companyName)
+                                try statement.bind(2, json.dictionary["baseURL"] as? String ?? "")
+                                try statement.bind(3, json.dictionary["companyBlogURL"] as? String ?? "")
+                                try statement.bind(4, json.dictionary["infotableID"] as? Int ?? 0)
+                })
+                response.setStatus(200, message: "Created")
+            }
         } catch {
             print("Error decoding json from data: \(reqData)")
             response.setStatus(400, message: "Bad Request")
